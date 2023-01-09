@@ -1,1 +1,1 @@
-# MS-analysis
+# NGS analysis
