@@ -35,8 +35,6 @@ sce_data <- sce_data[names(vars)[1:1000],]
 
 # compute low-dimensional representation with 2 factors
 sce_data_zinb <- zinbwave(sce_data, K = 2, X="~study", epsilon=1000)
-#sce_data_zinb <- zinbsurf(sce_data, K = 2, X="~study", epsilon=1000, prop_fit = 0.5, BPPARAM=DoparParam(1))
-#sce_data_zinb <- zinbwave(sce_data, K = 2, epsilon=1000)
 
 #reducedDims(sce_data) <- SimpleList(zinb = sce_data_zinb)
 
