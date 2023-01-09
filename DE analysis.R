@@ -45,7 +45,6 @@ head (fit$coefficients)
 
 # carry out the QL F-test
 con <- makeContrasts((cancer_ep) - (bph_ep), levels=design)
-#con <- makeContrasts((CD235a.neg.CD45.neg.EpCAM.pos.NCAM.pos_FETAL + CD235a.neg.CD45.neg_FETAL + CD235a.neg.CD45.neg.EpCAM.pos.NCAM.pos_FETAL + CD235a.neg.CD45.pos.EpCAM.neg_FETAL + CD235a.neg.EpCAM.neg.ASGPR1.pos_ADULT + CD235a.neg.EpCAM.pos_ADULT)/6 - (Malignant_cell + B_cell + HPC_like + T_cell + TAM + TEC + CAF + unclassified)/8, levels=design)
 
 qlf <- glmQLFTest(fit, contrast=con)
 
@@ -53,7 +52,6 @@ qlf <- glmQLFTest(fit, contrast=con)
 qlf$table$bonferroni = p.adjust(qlf$table$PValue, method="bonferroni")
 
 # Output QL F-test results
-#write.table (qlf$table, file = sprintf ("/data/liver_csc/data/DE %s", qlf$comparison), row.names = TRUE, sep = "\t")
 write.table (qlf$table, file = sprintf ("/home/borzik01/prostate_cancer/data/DE_cancer_bph_ep_3", qlf$comparison), row.names = TRUE, sep = "\t")
 
 # Calculate fitted log CPM values
